@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>理想国冒险之旅接待AI</title>
+  <!-- 引入独立的CSS文件 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <!-- 聊天头部（现代化样式升级） -->
+    <div class="chat-header">
+      <div class="avatar ai-avatar">
+        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDAiIGN5PSI0MCIgcj0iNDAiIGZpbGw9IiM0QT9BN0E5Ii8+CjxwYXRoIGQ9Ik00MCAyNUMzMS43MTYgMjUgMjUgMzEuNzE2IDI1IDQwQzI1IDQ4LjI4NCAzMS43MTYgNTUgNDAgNTVDNDguMjg0IDU1IDU1IDQ4LjI4NCA1NSA0MEM1NSAzMS43MTYgNDguMjg0IDI1IDQwIDI1WiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0yNSA2MEMyNSA1My4zNzMgMzAuMzczIDQ4IDM3IDQ4QzQzLjYyNyA0OCA0OSA1My4zNzMgNDkgNjBAOTAgNjAgOTAgNjUgMCA2NVY2MEMwIDYwIDAgNjUgMCA2MCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik00MCAzM1YzNCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CjxwYXRoIGQ9Ik0zMCAzM0gzMCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==" alt="AI头像">
+      </div>
+      <h2>理想国冒险之旅接待AI</h2>
+      <div class="chat-controls">
+        <button id="clear-chat" class="btn btn-sm">清空记录</button>
+      </div>
+    </div>
+
+    <!-- 聊天内容区域（预留背景图片位置） -->
+    <div id="chat-messages" class="chat-messages">
+      <!-- 欢迎消息（自动生成） -->
+    </div>
+
+    <!-- 输入区域（现代化样式升级） -->
+    <div class="chat-input-area">
+      <div class="input-wrapper">
+        <textarea 
+          id="user-input" 
+          placeholder="请输入你的问题，比如：下载链接、作者主页等等"
+          rows="1"
+          maxlength="500"
+        ></textarea>
+        <div class="input-footer">
+          <span id="char-count">0/500</span>
+          <button id="send-btn" class="btn send-btn">发送</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 引入核心JS文件 -->
+  <script src="guide-ai.js"></script>
+</body>
+</html>
