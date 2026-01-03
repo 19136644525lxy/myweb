@@ -14,7 +14,7 @@ body {
      - 子目录：url("./images/background.png")
      - 绝对路径：url("C:/Users/xxx/Desktop/bg.jpg")
   */
-  background-image: url("assets/background.png");
+  background-image: url("/myweb/assets/background.png");
   
   /* 背景图片配置（无需修改） */
   background-size: cover;       /* 覆盖整个页面 */
@@ -430,4 +430,5 @@ body {
     padding: 16px 20px;
   }
 }
+
 
