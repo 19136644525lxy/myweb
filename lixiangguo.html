@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理想国冒险之旅 - Minecraft整合包</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/myweb/assets/css/style.css">
+    <!-- 音乐播放器样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script>
+        // 页面加载时自动设置为暗色主题
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- 顶部横幅 -->
+    <div class="top-banner" id="topBanner">
+        <div class="top-banner-content">
+            <span class="top-banner-logo">🎮</span>
+            <span class="top-banner-title">◆ 理想国冒险之旅</span>
+            <span class="top-banner-desc">专为中低配置玩家打造的冒险加养老整合包</span>
+            <a href="#download" class="top-banner-btn">下载整合包</a>
+            <button class="top-banner-close" onclick="document.getElementById('topBanner').style.display='none'">✕</button>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header" data-js="header">
+            <div class="wrapper header-wrapper">
+                <div class="top-header">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜索项目..." onclick="window.location.href='search.html'">
+                        <button class="search-btn" onclick="window.location.href='search.html'">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="theme-toggle-container">
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="日夜切换">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <span class="el-avatar el-avatar--circle">
+                        <img src="/myweb/assets/images/logo无背景.png" style="object-fit:cover;" alt="栖拓工坊">
+                    </span>
+                </div>
+                <div class="title-container">
+                    <div class="header-title" data-text="理想国冒险之旅">
+                        理想国冒险之旅                
+                    </div>
+                    <p itemprop="description" class="header-item header-about">
+                        Ideal Country Adventure                
+                    </p>
+                </div>
+                <div class="nav header-item left-side-custom-code">
+                    <!-- 音乐播放器 -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                    <meting-js server="netease" type="playlist" id="12304028420" fixed="true" mini="true" order="random" loop="all" preload="auto" autoplay="true" lrc="false" list-folded="false"></meting-js>
+                </div>
+                <nav class="nav header-item header-nav">
+                    <span class="nav-item nav-item-current">
+                        <a href="#home" title="首页" class="nav-link active" data-section="home">
+                            <i class="fa-solid fa-home"></i> 首页
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#introduction" title="整合包介绍" class="nav-link" data-section="introduction">
+                            <i class="fa-solid fa-book"></i> 整合包介绍
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#series" title="系列分类" class="nav-link" data-section="series">
+                            <i class="fa-solid fa-layer-group"></i> 系列分类
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#features" title="特色功能" class="nav-link" data-section="features">
+                            <i class="fa-solid fa-star"></i> 特色功能
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#download" title="下载" class="nav-link" data-section="download">
+                            <i class="fa-solid fa-download"></i> 下载
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#faq" title="常见问题" class="nav-link" data-section="faq">
+                            <i class="fa-solid fa-question-circle"></i> 常见问题
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="/myweb/index.html" title="返回首页" class="nav-link" target="_self">
+                            <i class="fa-solid fa-arrow-left"></i> 返回栖拓工坊
+                        </a>
+                    </span>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+
+        <!-- 标题区域 -->
+        <header id="home">
+            <div class="header-content">
+                <h1>理想国冒险之旅</h1>
+                <p class="subtitle">专为中低配置玩家打造的冒险加养老整合包，多样化的结构和生物群系等待你的探索</p>
+            </div>
+        </header>
+
+        <!-- 整合包介绍 -->
+        <section id="introduction" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-book"></i> 整合包介绍
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <p class="post-excerpt">
+                                理想国冒险之旅分为新生代和旧时代，基本都是1.20.1版本。新生代是Fabric模组加载器，旧时代是Forge模组加载器。喜欢养老且有一点结构探险的可以选择新生代，喜欢主冒险加一点养老的可以考虑旧时代。
+                            </p>
+                            <p class="post-excerpt">
+                                此整合包分有多系列，Fabric版的基本都是养老风，Forge的都是偏冒险。作者持续更新中，为玩家提供更好的游戏体验。
+                            </p>
+                            <div class="note">
+                                目前任务书多的只有新生代的完整版以及旧时代，其余任务书都很少，甚至没有，敬请谅解。
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 系列分类 -->
+        <section id="series" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-layer-group"></i> 系列分类
+            </h2>
+            
+            <!-- 新生代 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">新生代 (Fabric)</h3>
+                            <p class="post-excerpt">
+                                专门做给中低配置玩家的冒险加养老整合包，养老以农夫乐事为核心；还有各种精美的小物件，内置了家具和投影模组供建筑玩家使用。
+                            </p>
+                            <h4>特色：</h4>
+                            <ul>
+                                <li>结构多样化</li>
+                                <li>生物群系多样化</li>
+                                <li>武器种类丰富，各种装备应有尽有</li>
+                                <li>生物多样化</li>
+                                <li>农夫乐事及其附属</li>
+                            </ul>
+                            <h4>开局：</h4>
+                            <p class="post-excerpt">
+                                开局基本跟原版一样（想致富先砍树）
+                            </p>
+                            <h4>难度系数：</h4>
+                            <p class="post-excerpt">
+                                新生代的难度系数比之前版本难度系数低，因为是偏养老的，但是还是会有一些小boss供玩家探险。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+            <!-- 旧时代 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">旧时代 (Forge)</h3>
+                            <p class="post-excerpt">
+                                专门做给中低配置玩家的冒险加养老整合包，养老以农夫乐事为核心，潘马斯农场各模组为辅助；内置FTB任务玩法，作者持续更新中。
+                            </p>
+                            <h4>特色：</h4>
+                            <ul>
+                                <li>前期晚上怪物众多</li>
+                                <li>有各式各样的村庄</li>
+                                <li>武器种类多样</li>
+                                <li>有许多的结构可探索</li>
+                                <li>各色各色的地牢</li>
+                                <li>原版结构的优化</li>
+                                <li>各种各样的农作物</li>
+                                <li>多彩的建筑材料</li>
+                                <li>叛逆的任务系统</li>
+                            </ul>
+                            <h4>开局如何生存：</h4>
+                            <p class="post-excerpt">
+                                开局玩家通过制作工作台领取开局奖励，内置击退棒，助你前期的安全保障（建议开启死亡不掉落）。
+                            </p>
+                            <h4>难度系数：</h4>
+                            <p class="post-excerpt">
+                                游戏的整体难度从原来的原版转变成有饥渴值一系列属性，难度增强，一路探索挑战越来越多的结构怪，BOSS，获取更加强势的装备，此时的你便可开启自己的养老生活了。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 特色功能 -->
+        <section id="features" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-star"></i> 特色功能
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">怪物属性</h3>
+                            <ul>
+                                <li>烟花苦力怕</li>
+                                <li>僵尸小加强（其实也就是有意识）</li>
+                                <li>引入墓园模组</li>
+                            </ul>
+                            
+                            <h3 class="post-title">生物属性</h3>
+                            <ul>
+                                <li>村民加强（有名字且职业增多）</li>
+                                <li>引入Hamsters模组（仓鼠）</li>
+                                <li>Alex的生物（有一些敌对生物）</li>
+                                <li>添加警卫村民，让你打袭击不再无帮手</li>
+                            </ul>
+                            
+                            <h3 class="post-title">养老与冒险</h3>
+                            <ul>
+                                <li>有许许多多的农作物供你种植</li>
+                                <li>灾变模组让你的世界有值得挑战的BOSS</li>
+                                <li>墓园的BOSS</li>
+                                <li>最终挑战-天空之城</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 下载部分 -->
+        <section id="download" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-download"></i> 下载
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <div class="btn-container">
+                                <a href="#" class="btn btn-primary" disabled>
+                                    <i class="fa-solid fa-download"></i> 下载新生代 (Fabric)
+                                </a>
+                                <a href="#" class="btn btn-secondary" disabled>
+                                    <i class="fa-solid fa-download"></i> 下载旧时代 (Forge)
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 常见问题 -->
+        <section id="faq" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-question-circle"></i> 常见问题
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">Q: 这个包有服务端吗？</h3>
+                            <p class="post-excerpt">
+                                A: 新生代有服务端。
+                            </p>
+                            
+                            <h3 class="post-title">Q: 整合包支持什么版本？</h3>
+                            <p class="post-excerpt">
+                                A: 基本都是1.20.1版本，新生代使用Fabric模组加载器，旧时代使用Forge模组加载器。
+                            </p>
+                            
+                            <h3 class="post-title">Q: 整合包适合什么配置的电脑？</h3>
+                            <p class="post-excerpt">
+                                A: 专为中低配置玩家打造，优化了性能，适合大多数电脑运行。
+                            </p>
+                            
+                            <h3 class="post-title">Q: 如何安装整合包？</h3>
+                            <p class="post-excerpt">
+                                A: 下载整合包后，使用PCL或HMCL启动器导入即可。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        </main>
+        <div class="right-sidebar" id="rightSidebar">
+            <!-- 侧边栏控制按钮 -->
+            <div class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-chevron-left" id="sidebarToggleIcon"></i>
+            </div>
+            <!-- 搜索功能 -->
+            <div class="search-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-search"></i>
+                    <span class="title">搜索</span>
+                </header>
+                <section class="section-body">
+                    <form method="get" action="#" class="search-container">
+                        <input type="text" name="s" class="search-input" placeholder="输入关键字搜索">
+                        <button type="submit" class="search-button" aria-label="搜索">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- 分类模块 -->
+            <div class="category-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-tags"></i>
+                    <span class="title">分类</span>
+                </header>
+                <section class="section-body">
+                    <div class="category-cloud">
+                        <a href="#introduction" class="category">整合包介绍</a>
+                        <a href="#series" class="category">系列分类</a>
+                        <a href="#features" class="category">特色功能</a>
+                        <a href="#download" class="category">下载</a>
+                        <a href="#faq" class="category">常见问题</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 推广卡片 -->
+            <div class="promo-section">
+                <a href="/myweb/index.html" class="promo-card" title="栖拓工坊">
+                    <div class="promo-card-icon">🎮</div>
+                    <div class="promo-card-title">栖拓工坊</div>
+                    <div class="promo-card-desc">
+                        <p>专注于我的世界内容创作</p>
+                        <p>为您带来优质的游戏体验</p>
+                    </div>
+                    <div class="promo-card-btn">了解更多 →</div>
+                    <div class="promo-card-badge">官方网站</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="nav main-lastinfo">
+            <span class="nav-item-alt">
+                <p>理想国冒险之旅整合包 - 专为中低配置玩家打造的冒险加养老整合包</p>
+                <p>关注我们获取最新更新和更多内容</p>
+                <div class="social-links">
+                    <a href="https://space.bilibili.com/1643252705" class="social-link">
+                        <i class="fa-brands fa-bilibili"></i> B站
+                    </a>
+                    <a href="https://github.com/19136644525lxy" class="social-link">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://afdian.com/a/wodefensimen061004" class="social-link">
+                        <i class="fa-solid fa-bolt"></i> 爱发电
+                    </a>
+                </div>
+                <p>© 2025-2026 栖拓工坊 保留所有权利</p>
+            </span>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="go-top dn" id="go-top">
+        <a href="#" class="go icon-up-open" aria-label="返回顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="/myweb/assets/js/script.js"></script>
+</body>
+</html>

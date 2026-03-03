@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCAA无创造和冒险 - Minecraft模组</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/myweb/assets/css/style.css">
+    <!-- 音乐播放器样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script>
+        // 页面加载时自动设置为暗色主题
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- 顶部横幅 -->
+    <div class="top-banner" id="topBanner">
+        <div class="top-banner-content">
+            <span class="top-banner-logo">🎮</span>
+            <span class="top-banner-title">◆ NCAA无创造和冒险</span>
+            <span class="top-banner-desc">防止玩家开启创造和冒险模式，适用于服务器和多人生存</span>
+            <a href="#download" class="top-banner-btn">了解更多</a>
+            <button class="top-banner-close" onclick="document.getElementById('topBanner').style.display='none'">✕</button>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header" data-js="header">
+            <div class="wrapper header-wrapper">
+                <div class="top-header">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜索项目..." onclick="window.location.href='search.html'">
+                        <button class="search-btn" onclick="window.location.href='search.html'">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="theme-toggle-container">
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="日夜切换">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <span class="el-avatar el-avatar--circle">
+                        <img src="/myweb/assets/images/logo无背景.png" style="object-fit:cover;" alt="栖拓工坊">
+                    </span>
+                </div>
+                <div class="title-container">
+                    <div class="header-title" data-text="无创造和冒险">
+                        无创造和冒险              
+                    </div>
+                    <p itemprop="description" class="header-item header-about">
+                        No creativity and adventure              
+                    </p>
+                </div>
+                <div class="nav header-item left-side-custom-code">
+                    <!-- 音乐播放器 -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                    <meting-js server="netease" type="playlist" id="12304028420" fixed="true" mini="true" order="random" loop="all" preload="auto" autoplay="true" lrc="false" list-folded="false"></meting-js>
+                </div>
+                <nav class="nav header-item header-nav">
+                    <span class="nav-item nav-item-current">
+                        <a href="#home" title="首页" class="nav-link active" data-section="home">
+                            <i class="fa-solid fa-home"></i> 首页
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#introduction" title="模组介绍" class="nav-link" data-section="introduction">
+                            <i class="fa-solid fa-book"></i> 模组介绍
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#features" title="功能特性" class="nav-link" data-section="features">
+                            <i class="fa-solid fa-star"></i> 功能特性
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#configuration" title="配置说明" class="nav-link" data-section="configuration">
+                            <i class="fa-solid fa-cog"></i> 配置说明
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#faq" title="常见问题" class="nav-link" data-section="faq">
+                            <i class="fa-solid fa-question-circle"></i> 常见问题
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#download" title="下载" class="nav-link" data-section="download">
+                            <i class="fa-solid fa-download"></i> 下载
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="/myweb/index.html" title="返回首页" class="nav-link" target="_self">
+                            <i class="fa-solid fa-arrow-left"></i> 返回栖拓工坊
+                        </a>
+                    </span>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+
+        <!-- 标题区域 -->
+        <header id="home">
+            <div class="header-content">
+                <h1>NCAA无创造和冒险</h1>
+                <p class="subtitle">防止玩家开启创造和冒险模式，适用于服务器和多人生存场景</p>
+            </div>
+        </header>
+
+        <!-- 模组介绍 -->
+        <section id="introduction" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-book"></i> 模组介绍
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <p class="post-excerpt">
+                                NCAA无创造和冒险模组是为理想国冒险之旅新生代制作的防止开创造数据包，后来发展为模组形式。该模组可以防止玩家偷偷开启创造模式，适用于正常服务器、多人生存等场景。
+                            </p>
+                            <p class="post-excerpt">
+                                模组形式的防开创，功能与数据包版本基本一致，但在配置界面添加了可配置的功能，使用更加方便。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 功能特性 -->
+        <section id="features" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-star"></i> 功能特性
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <ul>
+                                <li>防止玩家开启创造模式</li>
+                                <li>防止玩家开启冒险模式</li>
+                                <li>适用于服务器和多人生存场景</li>
+                                <li>模组版本支持配置界面</li>
+                                <li>数据包版本易于部署</li>
+                                <li>可自定义提示文本</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 配置说明 -->
+        <section id="configuration" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-cog"></i> 配置说明
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">数据包使用方法</h3>
+                            <p class="post-excerpt">
+                                把数据包放在存档的 datapacks 文件夹里即可。原提示文本为默认设置，可根据需要修改。
+                            </p>
+                            <p class="post-excerpt">
+                                在数据包 data/force_gamemode/functions/fevert_to_survival.mcfunction 文件内修改提示文字即可使用。
+                            </p>
+                            
+                            <h3 class="post-title">模组配置</h3>
+                            <p class="post-excerpt">
+                                在模组配置选项里可以配置模组功能的开关，还有提示文本的修改。通过模组界面可以更方便地进行设置。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 下载 -->
+        <section id="download" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-download"></i> 下载
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <p class="post-excerpt">
+                                您可以从以下平台下载NCAA无创造和冒险模组：
+                            </p>
+                            <div class="btn-container" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                                <a href="https://www.mcmod.cn/class/22201.html" class="btn btn-primary" target="_blank">
+                                    <i class="fa-solid fa-download"></i> MC百科
+                                </a>
+                                <a href="#" class="btn btn-secondary" onclick="event.preventDefault(); showAlert()">
+                                    <i class="fa-solid fa-download"></i> Modrinth
+                                </a>
+                                <a href="https://www.curseforge.com/minecraft/mc-mods/no-creativity-and-adventure-mod" class="btn btn-secondary" target="_blank">
+                                    <i class="fa-solid fa-download"></i> CurseForge
+                                </a>
+                            </div>
+                            <div class="note">
+                                注: 请根据您的需求选择合适的下载链接。
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 常见问题 -->
+        <section id="faq" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-question-circle"></i> 常见问题
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">Q: 数据包和模组版本有什么区别？</h3>
+                            <p class="post-excerpt">
+                                A: 数据包版本部署简单，直接放入datapacks文件夹即可；模组版本提供了配置界面，使用更加方便。
+                            </p>
+                            
+                            <h3 class="post-title">Q: 如何修改提示文本？</h3>
+                            <p class="post-excerpt">
+                                A: 数据包版本在 data/force_gamemode/functions/fevert_to_survival.mcfunction 文件内修改；模组版本通过配置界面修改。
+                            </p>
+                            
+                            <h3 class="post-title">Q: 适用于哪些场景？</h3>
+                            <p class="post-excerpt">
+                                A: 适用于正常服务器、多人生存等需要防止玩家开启创造模式的场景。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        </main>
+        <div class="right-sidebar" id="rightSidebar">
+            <!-- 侧边栏控制按钮 -->
+            <div class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-chevron-left" id="sidebarToggleIcon"></i>
+            </div>
+            <!-- 搜索功能 -->
+            <div class="search-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-search"></i>
+                    <span class="title">搜索</span>
+                </header>
+                <section class="section-body">
+                    <form method="get" action="#" class="search-container">
+                        <input type="text" name="s" class="search-input" placeholder="输入关键字搜索">
+                        <button type="submit" class="search-button" aria-label="搜索">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- 分类模块 -->
+            <div class="category-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-tags"></i>
+                    <span class="title">分类</span>
+                </header>
+                <section class="section-body">
+                    <div class="category-cloud">
+                        <a href="#introduction" class="category">模组介绍</a>
+                        <a href="#features" class="category">功能特性</a>
+                        <a href="#configuration" class="category">配置说明</a>
+                        <a href="#faq" class="category">常见问题</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 推广卡片 -->
+            <div class="promo-section">
+                <a href="/myweb/index.html" class="promo-card" title="栖拓工坊">
+                    <div class="promo-card-icon">🎮</div>
+                    <div class="promo-card-title">栖拓工坊</div>
+                    <div class="promo-card-desc">
+                        <p>专注于我的世界内容创作</p>
+                        <p>为您带来优质的游戏体验</p>
+                    </div>
+                    <div class="promo-card-btn">了解更多 →</div>
+                    <div class="promo-card-badge">官方网站</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="nav main-lastinfo">
+            <span class="nav-item-alt">
+                <p>NCAA无创造和冒险模组 - 防止玩家开启创造和冒险模式，适用于服务器和多人生存</p>
+                <p>关注我们获取最新更新和更多内容</p>
+                <div class="social-links">
+                    <a href="https://space.bilibili.com/1643252705" class="social-link">
+                        <i class="fa-brands fa-bilibili"></i> B站
+                    </a>
+                    <a href="https://github.com/19136644525lxy" class="social-link">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://afdian.com/a/wodefensimen061004" class="social-link">
+                        <i class="fa-solid fa-bolt"></i> 爱发电
+                    </a>
+                </div>
+                <p>© 2025-2026 栖拓工坊 保留所有权利</p>
+            </span>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="go-top dn" id="go-top">
+        <a href="#" class="go icon-up-open" aria-label="返回顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="/myweb/assets/js/script.js"></script>
+    <script>
+        function showAlert() {
+            // 创建遮罩层
+            const overlay = document.createElement('div');
+            overlay.className = 'custom-alert-overlay';
+            
+            // 创建消息框
+            const alertBox = document.createElement('div');
+            alertBox.className = 'custom-alert';
+            
+            // 创建消息内容
+            const messageElement = document.createElement('div');
+            messageElement.className = 'custom-alert-message';
+            messageElement.textContent = '此项目/链接暂未发布，敬请期待';
+            
+            // 创建按钮
+            const btn = document.createElement('button');
+            btn.className = 'custom-alert-button';
+            btn.textContent = '确定';
+            btn.addEventListener('click', function() {
+                document.body.removeChild(overlay);
+                document.body.removeChild(alertBox);
+            });
+            
+            // 组装消息框
+            alertBox.appendChild(messageElement);
+            alertBox.appendChild(btn);
+            
+            // 添加到页面
+            document.body.appendChild(overlay);
+            document.body.appendChild(alertBox);
+        }
+    </script>
+</body>
+</html>
