@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>栖拓工坊 - 我的世界内容创作工作室</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/myweb/assets/css/style.css">
+    <!-- 音乐播放器样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+</head>
+<body>
+    <!-- 顶部横幅 -->
+    <div class="top-banner" id="topBanner">
+        <div class="top-banner-content">
+            <span class="top-banner-logo">🎮</span>
+            <span class="top-banner-title">◆ 栖拓工坊</span>
+            <span class="top-banner-desc">专注于我的世界内容创作，为您带来优质的整合包、模组和资源包</span>
+            <a href="#projects" class="top-banner-btn">浏览项目</a>
+            <button class="top-banner-close" onclick="document.getElementById('topBanner').style.display='none'">✕</button>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header" data-js="header">
+            <div class="wrapper header-wrapper">
+                <div class="top-header">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜索项目..." onclick="window.location.href='search.html'">
+                        <button class="search-btn" onclick="window.location.href='search.html'">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="theme-toggle-container">
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="日夜切换">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <span class="el-avatar el-avatar--circle">
+                        <img src="/myweb/assets/images/logo无背景.png" style="object-fit:cover;" alt="栖拓工坊">
+                    </span>
+                </div>
+                <div class="title-container">
+                    <div class="header-title" data-text="栖拓工坊">
+                        栖拓工坊                
+                    </div>
+                    <p itemprop="description" class="header-item header-about">
+                        Qituo Studio                
+                    </p>
+                </div>
+                <div class="nav header-item left-side-custom-code">
+                    <!-- 音乐播放器 -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                    <meting-js server="netease" type="playlist" id="12304028420" fixed="true" mini="true" order="random" loop="all" preload="auto" autoplay="true" lrc="false" list-folded="false"></meting-js>
+                </div>
+                <nav class="nav header-item header-nav">
+                    <span class="nav-item nav-item-current">
+                        <a href="#home" title="首页" class="nav-link active" data-section="home">
+                            <i class="fa-solid fa-home"></i> 首页
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#projects" title="项目" class="nav-link" data-section="projects">
+                            <i class="fa-solid fa-project-diagram"></i> 项目
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#modpacks" title="整合包" class="nav-link" data-section="modpacks">
+                            <i class="fa-solid fa-box"></i> 整合包
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#mods" title="模组" class="nav-link" data-section="mods">
+                            <i class="fa-solid fa-cubes"></i> 模组
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#resources" title="资源包" class="nav-link" data-section="resources">
+                            <i class="fa-solid fa-image"></i> 资源包
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#license" title="许可协议" class="nav-link" data-section="license">
+                            <i class="fa-solid fa-file-contract"></i> 许可协议
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="/myweb/about.html" title="关于作者" class="nav-link about-author" target="_blank">
+                            <i class="fa-solid fa-user"></i> 关于作者
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#team" title="团队成员" class="nav-link" data-section="team">
+                            <i class="fa-solid fa-users"></i> 团队成员
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#links" title="其他平台官方链接" class="nav-link" data-section="links">
+                            <i class="fa-solid fa-link"></i> 其他平台官方链接
+                        </a>
+                    </span>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+
+        <!-- 标题区域 -->
+        <header id="home">
+            <div class="header-content">
+                <h1 data-text="栖拓工坊">栖拓工坊</h1>
+                <p class="subtitle">专注于我的世界内容创作，为您带来优质的游戏体验</p>
+            </div>
+        </header>
+
+        <!-- 时间显示器 -->
+        <div class="time-display">
+            <div class="time-content">
+                <div class="time-date"></div>
+                <div class="time-clock"></div>
+            </div>
+        </div>
+
+        <!-- 截图展示滚筒 -->
+        <div class="screenshot-carousel">
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    <img src="/myweb/assets/Random/image_1.png" alt="截图1">
+                    <img src="/myweb/assets/Random/image_2.png" alt="截图2">
+                    <img src="/myweb/assets/Random/image_3.png" alt="截图3">
+                    <img src="/myweb/assets/Random/image_4.png" alt="截图4">
+                    <img src="/myweb/assets/Random/image_5.png" alt="截图5">
+                    <img src="/myweb/assets/Random/swiper1.png" alt="截图6">
+                    <img src="/myweb/assets/Random/swiper2.png" alt="截图7">
+                    <img src="/myweb/assets/Random/swiper3.png" alt="截图8">
+                    <img src="/myweb/assets/Random/swiper4.png" alt="截图9">
+                    <img src="/myweb/assets/Random/swiper5.png" alt="截图10">
+                </div>
+                <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="carousel-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="carousel-indicators"></div>
+            </div>
+        </div>
+
+        <!-- 项目展示区域 -->
+        <div id="projects" class="post-container">
+            <!-- 整合包项目 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/lixiangguo.jpg" alt="整合包项目" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                <a href="#modpacks">
+                                    理想国冒险之旅
+                                </a>
+                            </h2>
+                            <div class="version-info">版本: 1.20.1/1.21.1 Fabric/Forge</div>
+                            <p class="post-excerpt">
+                                专门做给偏中上配置玩家的冒险加养老整合包，养老以农夫乐事为核心；还有各种精美的小物件，内置了家具和投影模组供建筑玩家使用；作者持续更新中。
+                            </p>
+                            <div class="note">包含多种模组，适合喜欢探索和冒险的玩家</div>
+                            <div class="btn-container">
+                                <a href="/myweb/lixiangguo.html" class="btn btn-secondary">
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2025-01-22
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+
+            <!-- 模组项目 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/user2.png" alt="模组项目" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                <a href="#mods">
+                                    Yifei的原版优化模组
+                                </a>
+                            </h2>
+                            <div class="version-info">版本: 1.20.1 Fabric</div>
+                            <p class="post-excerpt">
+                                优化了原版一些“伪人设计”
+                            </p>
+                            <div class="note">还在开发中，不打算开源，目前仅在开发环境测试中，测试完毕就发布</div>
+                            <div class="btn-container">
+                                <a href="#" class="btn btn-secondary" onclick="event.preventDefault(); showAlert()">
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2026-3月-5月（开发中）
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+
+            <!-- 资源包项目 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/user2.png" alt="资源包项目" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                <a href="#resources">
+                                    字体包
+                                </a>
+                            </h2>
+                            <div class="version-info">版本：不限版本</div>
+                            <p class="post-excerpt">
+                                自制的字体包
+                            </p>
+                            <div class="note">闲来无事做的，觉得可以就下载看看QWQ</div>
+                            <div class="btn-container">
+                                <a href="#" class="btn btn-secondary" onclick="event.preventDefault(); showAlert()">
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2026
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+        </div>
+
+        <!-- 整合包专区 -->
+        <section id="modpacks" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-box"></i> 整合包专区
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/child.png" alt="把童年拼好给你" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                把童年拼好给你
+                            </h2>
+                            <div class="version-info">版本: 1.20.1 Forge</div>
+                            <p class="post-excerpt">
+                                这是一款整合了00后小时候所接触过的大众模组的整合包，尽可能的还原小时候的味道。
+                            </p>
+                            <div class="btn-container">
+                                <a href="https://www.xyebbs.com/res-id/piece-together-the-childhood-for-you?tab=description" class="btn btn-primary">
+                                    <i class="fa-solid fa-download"></i> 下载
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2025-08
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+            
+            <!-- 整合包模板1 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/hundun.png" alt="混沌乱世" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                混沌乱世
+                            </h2>
+                            <div class="version-info">版本: 1.20.1 Forge</div>
+                            <p class="post-excerpt">
+                                一个以拔刀剑为主题的自我升级的整合包
+                            </p>
+                            <div class="btn-container">
+                                <a href="https://www.xyebbs.com/res-id/chaotic-turbulent-time?tab=description" class="btn btn-secondary">
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2026
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+            
+            <!-- 整合包模板2 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/hati.png" alt="整合包模板2" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                混元登仙
+                            </h2>
+                            <div class="version-info">版本: 1.20.1 Forge</div>
+                            <p class="post-excerpt">
+                                这个整合包是近期团队在精心制作的一个大型魔改整合包，添加了许多新的功能和模组，整合包分阶段，还有职业等等，等正式发布再揭秘
+                            </p>
+                            <div class="btn-container">
+                                <a href="/myweb/hati.html" class="btn btn-secondary" >
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2026
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+        </section>
+
+        <!-- 模组专区 -->
+        <section id="mods" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-cubes"></i> 模组专区
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊   
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/user2.png" alt="自定义生物刷怪笼" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                自定义生物刷怪笼
+                            </h2>
+                            <div class="version-info">版本: 1.20.1 Fabric/Forge</div>
+                            <p class="post-excerpt">
+                                这个模组添加了可自定义的生物刷怪笼
+                            </p>
+                            <div class="btn-container">
+                                <a href="/myweb/BSB.html#custom-biome-spawner" class="btn btn-secondary">
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2025-02-25
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+            
+            <!-- 模组模板 -->
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/user2.png" alt="模组模板" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                无创造和冒险模组
+                            </h2>
+                            <div class="version-info">版本: 1.20.1 Fabric/数据包</div>
+                            <p class="post-excerpt">
+                                这原本是给 理想国冒险之旅 新生代 制作的防止开创造和冒险的模组/数据包
+                            </p>
+                            <div class="btn-container">
+                                <a href="/myweb/NCAA.html" class="btn btn-secondary">
+                                    <i class="fa-solid fa-info-circle"></i> 详情
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2026
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+        </section>
+
+        <!-- 资源包专区 -->
+        <section id="resources" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-image"></i> 资源包专区
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <header class="post-item post-header no-bg">
+                        <div class="wrapper post-wrapper">
+                            <div class="avatar post-author">
+                                <img src="/myweb/assets/images/user.jpg" alt="作者头像" class="avatar-item avatar-img">
+                                <span class="avatar-item">
+                                    栖拓工坊
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <figure class="post-media">
+                        <img src="/myweb/assets/images/user2.png" alt="整合包专属材质包" width="800" height="400">
+                    </figure>
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h2 class="post-title">
+                                整合包专属材质包
+                            </h2>
+                            <div class="version-info">版本: 不限</div>
+                            <p class="post-excerpt">
+                                有些整合包我们会自制一些专属材质包供其修改
+                            </p>
+                        </div>
+                    </section>
+                    <footer class="post-item post-footer">
+                        <div class="wrapper post-wrapper">
+                            <div class="meta post-meta">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
+                                    <span class="meta-count">
+                                        2026
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </article>
+        </section>
+
+        <!-- 团队成员 -->
+        <section id="team" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-users"></i> 团队成员
+            </h2>
+            <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+                <!-- 团队成员1 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/user.jpg" alt="团队成员1" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">奕暃</h3>
+                            <p class="post-excerpt">创始人 & 主开发者</p>
+                            <div class="btn-container">
+                                <a href="/myweb/about.html" class="btn btn-primary" target="_blank">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- 团队成员2 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/lisui.jpg" alt="团队成员2" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">伶逍</h3>
+                            <p class="post-excerpt">整合包开发 & 魔改</p>
+                            <div class="btn-container">
+                                <a href="https://center.mcmod.cn/232798/" class="btn btn-primary">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- 团队成员3 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/laman.jpg" alt="团队成员3" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">拉曼却点子王</h3>
+                            <p class="post-excerpt">任务师</p>
+                            <div class="btn-container">
+                                <a href="https://center.mcmod.cn/989936/" class="btn btn-primary">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- 团队成员4 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/mitailangjiang.jpg" alt="团队成员4" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">咪太郎Sama</h3>
+                            <p class="post-excerpt">程序 & 美术</p>
+                            <div class="btn-container">
+                                <a href="https://center.mcmod.cn/1124654/" class="btn btn-primary">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- 团队成员5 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/gugugu.png" alt="团队成员5" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">咕咕咕</h3>
+                            <p class="post-excerpt">前官网前端设计师</p>
+                            <div class="btn-container">
+                                <a href="https://center.mcmod.cn/168781/" class="btn btn-primary">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- 团队成员6 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/Beili.png" alt="团队成员6" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">杯黎</h3>
+                            <p class="post-excerpt">吉祥物</p>
+                            <div class="btn-container">
+                                <a href="https://center.mcmod.cn/937862/" class="btn btn-primary">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <!-- 团队成员7 -->
+                <div class="post" style="width: 300px;">
+                    <div class="post-inner">
+                        <figure class="post-media">
+                            <img src="/myweb/assets/images/xiaomingle.jpg" alt="团队成员7" width="300" height="200">
+                        </figure>
+                        <section class="post-item post-body">
+                            <h3 class="post-title">萧鸣乐</h3>
+                            <p class="post-excerpt">合作赞助</p>
+                            <div class="btn-container">
+                                <a href="https://afdian.com/a/xml666" class="btn btn-primary">
+                                    <i class="fa-solid fa-user"></i> 个人主页
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 其他平台官方链接 -->
+        <section id="links" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-link"></i> 其他平台官方链接
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <p class="post-excerpt">
+                                您可以在以下平台找到我们的官方账号：
+                            </p>
+                            <div class="btn-container" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                                <a href="https://space.bilibili.com/1643252705" class="btn btn-primary" target="_blank">
+                                    <i class="fa-brands fa-bilibili"></i> B站
+                                </a>
+                                <a href="https://github.com/19136644525lxy" class="btn btn-secondary" target="_blank">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="https://afdian.com/a/wodefensimen061004" class="btn btn-secondary" target="_blank">
+                                    <i class="fa-solid fa-bolt"></i> 爱发电
+                                </a>
+                                <a href="https://www.mcmod.cn/author/35494.html" class="btn btn-secondary" target="_blank">
+                                    <i class="fa-solid fa-gamepad"></i> MC百科
+                                </a>
+                                <a href="https://www.xyebbs.com/members?tab=resources" class="btn btn-secondary" target="_blank">
+                                    <i class="fa-solid fa-gamepad"></i> Xyebbsmc
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 许可协议 -->
+        <section id="license" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-file-contract"></i> 许可协议
+            </h2>
+            <div class="post">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="license-info-card">
+                            <h1 data-text="栖拓工坊作品使用协议 (Qituo Studio Usage Protocol - QSUP)">栖拓工坊作品使用协议 (Qituo Studio Usage Protocol - QSUP)</h1>
+                            <div class="license-info-meta">
+                                <div>
+                                    <span data-text="版本: 1.0">版本: 1.0</span>
+                                    <span data-text="生效日期: 2026-03-01">生效日期: 2026-03-01</span>
+                                </div>
+                                <div>
+                                    <span data-text="适用范围: 所有栖拓工坊作品">适用范围: 所有栖拓工坊作品</span>
+                                </div>
+                            </div>
+                            <div class="cc-icon">©</div>
+                            <div style="margin-top: 20px;">
+                                <p><strong data-text="Copyright (c) 2026-2100 Qituo Studio">Copyright (c) 2026-2100 Qituo Studio</strong></p>
+                                <hr>
+                                <blockquote>
+                                    <strong>重要提示</strong> <br/>
+                                    本协议是您与栖拓工坊（以下简称"QT"）之间关于QT作品使用的法律约定，旨在明确知识产权归属、规范使用行为并界定双方权利义务。请在使用QT作品前务必完整阅读本协议。您的使用行为即视为对本协议全部条款的认可，若您不同意协议内容，请勿使用相关作品。
+                                </blockquote>
+                                <hr>
+                                <h2>第一章 定义与术语</h2>
+                                <p><strong>QT作品</strong> <br/>
+                                    指由栖拓工坊独立开发或经授权发布的适用于Minecraft游戏的软件、模组、插件、地图、资源包、行为包、代码、美术素材、音频、视频及其他形式的数字化创作成果，包括但不限于QT官方版本、测试版本、更新版本及衍生内容。</p>
+                                <p><strong>用户</strong> <br/>
+                                    指通过官方渠道获取、安装、使用、传播或展示QT作品的自然人、法人或其他组织（以下统称"用户"）。</p>
+                                <p><strong>官方发布渠道</strong> <br/>
+                                    特指QT授权的正式分发平台，包括但不限于：MCmod | Modrinth | Curseforge | Xyebbsmc <br/>
+                                    <em>注：通过非官方渠道获取、传播或使用QT作品的行为均视为违约</em></p>
+                                <p><strong>商业用途</strong> <br/>
+                                    指以直接或间接获取经济利益为目的的行为，包括但不限于：出售、出租、广告植入、付费订阅、商业演出、品牌合作、盈利性项目开发或通过QT作品引流获取收益。</p>
+                                <p><strong>衍生作品</strong> <br/>
+                                    指基于QT作品进行改编、翻译、汇编、修改、二次创作形成的新内容，包括但不限于模组二次开发、地图改编、素材衍生设计、剧情扩展等。</p>
+                                <p><strong>内容创作者</strong> <br/>
+                                    指通过视频、直播、图文等形式公开展示QT作品的个人或团队，包括但不限于主播、UP主、自媒体创作者、攻略作者等。</p>
+                                <hr>
+                                <h2>第二章 知识产权条款</h2>
+                                <h3>2.1 权利归属</h3>
+                                <ul>
+                                    <li>QT作品的所有知识产权（包括但不限于版权、商标权、专利权、商业秘密及其他专有权利）均归栖拓工坊或其授权方所有，用户仅获得本协议明确授予的有限使用权。</li>
+                                    <li>QT作品中涉及的第三方素材（如开源组件、合作方资源）适用其独立许可协议，用户需同时遵守对应条款，QT不对此类第三方素材承担责任。</li>
+                                </ul>
+                                <h3>2.2 许可范围</h3>
+                                <p><strong>非商业使用许可</strong> <br/>
+                                    用户可在遵守本协议的前提下，为个人学习、研究或娱乐目的下载、安装及运行QT作品，并可在非商业场景下免费分享未修改的官方版本，但需完整保留原始版权声明及所有权利标识。</p>
+                                <p><strong>禁止商业使用</strong> <br/>
+                                    未经QT书面授权（邮件或签署协议），严禁将QT作品或其衍生内容用于任何商业活动，包括但不限于：</p>
+                                <ul>
+                                    <li>将作品或素材纳入付费软件、服务或会员体系</li>
+                                    <li>在商业广告、品牌推广、线下展览中使用QT作品元素</li>
+                                    <li>以QT作品为基础开发收费模组、插件或衍生产品</li>
+                                    <li>未经授权使用QT品牌标识进行商业合作</li>
+                                </ul>
+                                <hr>
+                                <h2>第三章 用户权利与义务</h2>
+                                <h3>3.1 合理使用规则</h3>
+                                <p>用户可在非商业环境下对QT作品进行非实质性修改（如个性化配置、参数调整），但在传播时修改内容不得包括：</p>
+                                <ul>
+                                    <li>破坏作品完整性或核心功能</li>
+                                    <li>移除或篡改版权信息、署名及版本标识</li>
+                                    <li>引入恶意代码或违反法律法规的内容</li>
+                                    <li>以任何形式误导他人认为修改内容为QT官方版本</li>
+                                </ul>
+                                <h3>3.2 内容创作规范</h3>
+                                <p>内容创作者在使用QT作品制作视频、直播或图文内容时，需遵守以下规范：</p>
+                                <ul>
+                                    <li>在作品描述或视频开头明确标注"使用了栖拓工坊的作品"</li>
+                                    <li>提供QT官方发布渠道的链接</li>
+                                    <li>不得使用QT作品进行违法、违规或违背公序良俗的内容创作</li>
+                                    <li>不得通过内容创作直接或间接损害QT的声誉或权益</li>
+                                </ul>
+                                <h3>3.3 服务器使用规范</h3>
+                                <p>在服务器中使用QT作品时，需：</p>
+                                <ul>
+                                    <li>确保服务器为非商业性质或已获得QT商业授权</li>
+                                    <li>在服务器公告或相关页面标注QT作品的使用</li>
+                                    <li>及时更新至QT作品的最新稳定版本</li>
+                                    <li>不得将QT作品与违反法律法规的内容或服务捆绑使用</li>
+                                </ul>
+                                <hr>
+                                <h2>第四章 违约责任</h2>
+                                <h3>4.1 违约行为</h3>
+                                <p>用户如有以下行为，视为违约：</p>
+                                <ul>
+                                    <li>未经授权将QT作品用于商业用途</li>
+                                    <li>侵犯QT作品的知识产权</li>
+                                    <li>传播修改后的作品而未明确标注</li>
+                                    <li>违反本协议其他条款的行为</li>
+                                </ul>
+                                <h3>4.2 违约责任</h3>
+                                <p>对于违约行为，QT有权：</p>
+                                <ul>
+                                    <li>要求立即停止违约行为并消除影响</li>
+                                    <li>撤销对违约用户的授权</li>
+                                    <li>要求赔偿由此造成的经济损失</li>
+                                    <li>通过法律途径维护自身权益</li>
+                                </ul>
+                                <hr>
+                                <h2>第五章 协议修改与终止</h2>
+                                <h3>5.1 协议修改</h3>
+                                <p>QT有权根据法律法规变化、业务发展需要或技术更新，对本协议进行修改。修改后的协议将在QT官方网站公布，自公布之日起生效。用户继续使用QT作品即视为接受修改后的协议。</p>
+                                <h3>5.2 协议终止</h3>
+                                <p>本协议自用户开始使用QT作品之日起生效，至用户停止使用QT作品并删除所有相关文件时终止。QT可在用户违反本协议时提前终止协议。</p>
+                                <hr>
+                                <h2>第六章 法律适用与争议解决</h2>
+                                <p>本协议的订立、执行、解释及争议解决均适用中华人民共和国法律。如双方就本协议发生争议，应首先通过友好协商解决；协商不成的，任何一方均有权向QT所在地有管辖权的人民法院提起诉讼。</p>
+                                <hr>
+                                <h2>第七章 其他条款</h2>
+                                <p>本协议的任何条款被认定为无效或不可执行，不影响其他条款的效力。本协议未明确规定的事项，按照相关法律法规及行业惯例处理。</p>
+                                <p>© 2026-2100 栖拓工坊 保留所有权利。</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        </main>
+        <div class="right-sidebar" id="rightSidebar">
+            <!-- 侧边栏控制按钮 -->
+            <div class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-chevron-left" id="sidebarToggleIcon"></i>
+            </div>
+
+
+            <!-- 分类模块 -->
+            <div class="category-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-tags"></i>
+                    <span class="title">分类</span>
+                </header>
+                <section class="section-body">
+                    <div class="category-cloud">
+                        <a href="#modpacks" class="category">整合包</a>
+                        <a href="#mods" class="category">模组</a>
+                        <a href="#resources" class="category">资源包</a>
+                        <a href="#" class="category">教程(后续发布)</a>
+                        <a href="#" class="category">工具（后续添加）</a>
+                        <a href="#team" class="category">团队</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 推广卡片 -->
+            <div class="promo-section">
+                <a href="#" class="promo-card" title="栖拓工坊">
+                    <div class="promo-card-icon">🎮</div>
+                    <div class="promo-card-title">栖拓工坊</div>
+                    <div class="promo-card-desc">
+                        <p>专注于我的世界内容创作</p>
+                        <p>为您带来优质的游戏体验</p>
+                    </div>
+                    <div class="promo-card-btn">了解更多 →</div>
+                    <div class="promo-card-badge">官方网站</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="nav main-lastinfo">
+            <span class="nav-item-alt">
+                <p>栖拓工坊专注于我的世界内容创作，我们致力于为玩家提供高质量的游戏体验。所有项目均为原创，欢迎大家支持！</p>
+                <p>栖拓工坊 © 2026-2100 Qituo Studio</p>
+            </span>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="go-top dn" id="go-top">
+        <a href="#" class="go icon-up-open" aria-label="返回顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="/myweb/assets/js/script.js"></script>
+    <script>
+    function showAlert() {
+        // 创建遮罩层
+        const overlay = document.createElement('div');
+        overlay.className = 'custom-alert-overlay';
+        
+        // 创建消息框
+        const alertBox = document.createElement('div');
+        alertBox.className = 'custom-alert';
+        
+        // 创建消息内容
+        const messageElement = document.createElement('div');
+        messageElement.className = 'custom-alert-message';
+        messageElement.textContent = '此项目/链接暂未发布，敬请期待';
+        
+        // 创建按钮
+        const btn = document.createElement('button');
+        btn.className = 'custom-alert-button';
+        btn.textContent = '确定';
+        btn.addEventListener('click', function() {
+            document.body.removeChild(overlay);
+            document.body.removeChild(alertBox);
+        });
+        
+        // 组装消息框
+        alertBox.appendChild(messageElement);
+        alertBox.appendChild(btn);
+        
+        // 添加到页面
+        document.body.appendChild(overlay);
+        document.body.appendChild(alertBox);
+    }
+</script>
+</body>
+</html>

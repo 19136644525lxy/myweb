@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索 - 栖拓工坊</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/myweb/assets/css/style.css">
+    <script>
+        // 页面加载时自动设置为暗色主题
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        });
+    </script>
+    <style>
+        .search-page {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .search-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .search-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #a8e6cf, #81cfe0, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+        .search-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .search-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        .search-form input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px 0 0 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-form input:focus {
+            border-color: #81cfe0;
+            box-shadow: 0 0 10px rgba(129, 207, 224, 0.3);
+        }
+        .search-form button {
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #a8e6cf, #81cfe0);
+            color: white;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .search-form button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .search-results {
+            margin-top: 40px;
+        }
+        .search-results h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .result-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .result-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        .result-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .result-item h3 a {
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+            padding: 5px 0;
+            color: transparent;
+            font-weight: bold;
+        }
+        
+        [data-theme="dark"] .result-item h3 a {
+            color: transparent;
+            font-weight: bold;
+        }
+        
+        .result-item h3 a::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #a8e6cf, #81cfe0, #a8e6cf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .result-item p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .result-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        .result-type {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 10px;
+            border-radius: 15px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        /* 自定义消息框样式 */
+        .custom-alert {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            z-index: 99999;
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        [data-theme="dark"] .custom-alert {
+            background: rgba(43, 43, 43, 0.9);
+            border: 1px solid rgba(51, 55, 57, 0.5);
+        }
+        
+        .custom-alert-message {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .custom-alert-button {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .custom-alert-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .custom-alert-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99998;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header" data-js="header">
+            <div class="wrapper header-wrapper">
+                <div class="top-header">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜索项目..." id="searchInput">
+                        <button class="search-btn" onclick="performSearch()">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="theme-toggle-container">
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="日夜切换">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <span class="el-avatar el-avatar--circle">
+                        <img src="/myweb/assets/images/logo无背景.png" style="object-fit:cover;" alt="栖拓工坊">
+                    </span>
+                </div>
+                <div class="title-container">
+                    <div class="header-title" data-text="栖拓工坊">
+                        栖拓工坊                
+                    </div>
+                    <p itemprop="description" class="header-item header-about">
+                        Qituo Studio                
+                    </p>
+                </div>
+                <div class="nav header-item left-side-custom-code">
+                    <!-- 音乐播放器 -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                    <meting-js server="netease" type="playlist" id="12304028420" fixed="true" mini="true" order="random" loop="all" preload="auto" autoplay="true" lrc="false" list-folded="false"></meting-js>
+                </div>
+                <nav class="nav header-item header-nav">
+                    <span class="nav-item nav-item-current">
+                        <a href="/myweb/index.html" title="首页" class="nav-link active" data-section="home">
+                            <i class="fa-solid fa-home"></i> 首页
+                        </a>
+                    </span>
+                </nav>
+            </div>
+        </header>
+        
+        <main class="main">
+            <div class="search-page">
+                <div class="search-header">
+                    <h1>搜索</h1>
+                    <p>搜索我们的项目，快速找到您需要的内容</p>
+                </div>
+                
+                <form class="search-form" onsubmit="event.preventDefault(); performSearch();">
+                    <input type="text" id="mainSearchInput" placeholder="输入关键词搜索..." autocomplete="off">
+                    <button type="submit">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                </form>
+                
+                <div class="search-results" id="searchResults">
+                    <h2>搜索结果</h2>
+                    <div class="no-results" id="noResults">
+                        <i class="fa-solid fa-search"></i>
+                        <p>请输入关键词进行搜索</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- 页脚 -->
+        <div class="nav main-lastinfo">
+            <span class="nav-item-alt">
+                <p>栖拓工坊专注于我的世界内容创作，我们致力于为玩家提供高质量的游戏体验。所有项目均为原创，欢迎大家支持！</p>
+                <p>栖拓工坊 © 2026-2100 Qituo Studio</p>
+            </span>
+        </div>
+    </div>
+    
+    <!-- 回到顶部按钮 -->
+    <div class="go-top dn" id="go-top">
+        <a href="#" class="go icon-up-open" aria-label="返回顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
+    
+    <script src="/myweb/assets/js/script.js"></script>
+    <script>
+        // 项目数据
+        const projects = [
+            {
+                title: "理想国冒险之旅",
+                description: "专门做给偏中上配置玩家的冒险加养老整合包，养老以农夫乐事为核心；还有各种精美的小物件，内置了家具和投影模组供建筑玩家使用；作者持续更新中。",
+                type: "整合包",
+                version: "1.20.1/1.21.1 Fabric/Forge",
+                link: "lixiangguo.html"
+            },
+            {
+                title: "把童年拼好给你",
+                description: "这是一款整合了00后小时候所接触过的大众模组的整合包，尽可能的还原小时候的味道。",
+                type: "整合包",
+                version: "1.20.1 Forge",
+                link: "https://www.xyebbs.com/res-id/piece-together-the-childhood-for-you?tab=description"
+            },
+            {
+                title: "混沌乱世",
+                description: "一个以拔刀剑为主题的自我升级的整合包",
+                type: "整合包",
+                version: "1.20.1 Forge",
+                link: "https://www.xyebbs.com/res-id/chaotic-turbulent-time?tab=description"
+            },
+            {
+                title: "混元登仙",
+                description: "这个整合包是近期团队在精心制作的一个大型魔改整合包，添加了许多新的功能和模组，整合包分阶段，还有职业等等，等正式发布再揭秘",
+                type: "整合包",
+                version: "1.20.1 Forge",
+                link: "#"
+            },
+            {
+                title: "Yifei的原版优化模组",
+                description: "优化了原版一些\"伪人设计\"",
+                type: "模组",
+                version: "1.20.1 Fabric",
+                link: "#"
+            },
+            {
+                title: "自定义生物刷怪笼",
+                description: "这个模组添加了可自定义的生物刷怪笼",
+                type: "模组",
+                version: "1.20.1 Fabric/Forge",
+                link: "BSB.html#custom-biome-spawner"
+            },
+            {
+                title: "无创造和冒险模组",
+                description: "这原本是给 理想国冒险之旅 新生代 制作的防止开创造和冒险的模组/数据包",
+                type: "模组",
+                version: "1.20.1 Fabric/数据包",
+                link: "NCAA.html"
+            },
+            {
+                title: "字体包",
+                description: "自制的字体包",
+                type: "资源包",
+                version: "不限版本",
+                link: "#"
+            },
+            {
+                title: "整合包专属材质包",
+                description: "有些整合包我们会自制一些专属材质包供其修改",
+                type: "资源包",
+                version: "不限",
+                link: "#"
+            }
+        ];
+        
+        // 执行搜索
+        function performSearch() {
+            const searchTerm = document.getElementById('mainSearchInput').value.toLowerCase() || document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('searchResults');
+            
+            if (!searchTerm) {
+                resultsContainer.innerHTML = '<h2>搜索结果</h2><div class="no-results"><i class="fa-solid fa-search"></i><p>请输入关键词进行搜索</p></div>';
+                return;
+            }
+            
+            // 过滤搜索结果
+            const filteredProjects = projects.filter(project => 
+                project.title.toLowerCase().includes(searchTerm) ||
+                project.description.toLowerCase().includes(searchTerm) ||
+                project.type.toLowerCase().includes(searchTerm) ||
+                project.version.toLowerCase().includes(searchTerm)
+            );
+            
+            // 清空结果容器
+            resultsContainer.innerHTML = '<h2>搜索结果</h2>';
+            
+            if (filteredProjects.length === 0) {
+                resultsContainer.innerHTML += `
+                    <div class="no-results">
+                        <i class="fa-solid fa-search"></i>
+                        <p>未找到与"${searchTerm}"相关的项目</p>
+                    </div>
+                `;
+            } else {
+                filteredProjects.forEach(project => {
+                    let linkHtml = '';
+                    if (project.link === '#' || !project.link) {
+                        linkHtml = `<h3><a href="#" onclick="event.preventDefault(); showAlert()" data-text="${project.title}">${project.title}</a></h3>`;
+                    } else {
+                        linkHtml = `<h3><a href="${project.link}" data-text="${project.title}">${project.title}</a></h3>`;
+                    }
+                    resultsContainer.innerHTML += `
+                        <div class="result-item">
+                            ${linkHtml}
+                            <p>${project.description}</p>
+                            <div class="result-meta">
+                                <span class="result-type">${project.type}</span>
+                                <span class="result-version">版本: ${project.version}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+        
+        // 监听回车键
+        document.getElementById('mainSearchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        function showAlert() {
+            // 创建遮罩层
+            const overlay = document.createElement('div');
+            overlay.className = 'custom-alert-overlay';
+            
+            // 创建消息框
+            const alertBox = document.createElement('div');
+            alertBox.className = 'custom-alert';
+            
+            // 创建消息内容
+            const messageElement = document.createElement('div');
+            messageElement.className = 'custom-alert-message';
+            messageElement.textContent = '此项目/链接暂未发布，敬请期待';
+            
+            // 创建按钮
+            const btn = document.createElement('button');
+            btn.className = 'custom-alert-button';
+            btn.textContent = '确定';
+            btn.addEventListener('click', function() {
+                document.body.removeChild(overlay);
+                document.body.removeChild(alertBox);
+            });
+            
+            // 组装消息框
+            alertBox.appendChild(messageElement);
+            alertBox.appendChild(btn);
+            
+            // 添加到页面
+            document.body.appendChild(overlay);
+            document.body.appendChild(alertBox);
+        }
+    </script>
+</body>
+</html>
