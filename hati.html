@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混元登仙 - Minecraft整合包</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/myweb/assets/css/style.css">
+    <!-- 音乐播放器样式 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script>
+        // 页面加载时自动设置为暗色主题
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            const themeIcon = document.getElementById('theme-icon');
+            if (themeIcon) {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- 顶部横幅 -->
+    <div class="top-banner" id="topBanner">
+        <div class="top-banner-content">
+            <span class="top-banner-logo">🎮</span>
+            <span class="top-banner-title">◆ 混元登仙</span>
+            <span class="top-banner-desc">以铁魔法为核心的硬核战斗探索整合包</span>
+            <a href="#download" class="top-banner-btn">下载整合包</a>
+            <button class="top-banner-close" onclick="document.getElementById('topBanner').style.display='none'">✕</button>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header class="header" data-js="header">
+            <div class="wrapper header-wrapper">
+                <div class="top-header">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="搜索项目..." onclick="window.location.href='search.html'">
+                        <button class="search-btn" onclick="window.location.href='search.html'">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="theme-toggle-container">
+                        <button class="theme-toggle" onclick="toggleTheme()" aria-label="日夜切换">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="logo-container">
+                    <span class="el-avatar el-avatar--circle">
+                        <img src="/myweb/assets/images/logo无背景.png" style="object-fit:cover;" alt="栖拓工坊">
+                    </span>
+                </div>
+                <div class="title-container">
+                    <div class="header-title" data-text="混元登仙">
+                        混元登仙                
+                    </div>
+                    <p itemprop="description" class="header-item header-about">
+                        Hun Yuan Deng Xian                
+                    </p>
+                </div>
+                <div class="nav header-item left-side-custom-code">
+                    <!-- 音乐播放器 -->
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+                    <meting-js server="netease" type="playlist" id="12304028420" fixed="true" mini="true" order="random" loop="all" preload="auto" autoplay="true" lrc="false" list-folded="false"></meting-js>
+                </div>
+                <nav class="nav header-item header-nav">
+                    <span class="nav-item nav-item-current">
+                        <a href="#home" title="首页" class="nav-link active" data-section="home">
+                            <i class="fa-solid fa-home"></i> 首页
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#introduction" title="整合包介绍" class="nav-link" data-section="introduction">
+                            <i class="fa-solid fa-book"></i> 整合包介绍
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#features" title="特色功能" class="nav-link" data-section="features">
+                            <i class="fa-solid fa-star"></i> 特色功能
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#configuration" title="配置要求" class="nav-link" data-section="configuration">
+                            <i class="fa-solid fa-cog"></i> 配置要求
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#download" title="下载" class="nav-link" data-section="download">
+                            <i class="fa-solid fa-download"></i> 下载
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="#faq" title="常见问题" class="nav-link" data-section="faq">
+                            <i class="fa-solid fa-question-circle"></i> 常见问题
+                        </a>
+                    </span>
+                    <span class="nav-item">
+                        <a href="/myweb/index.html" title="返回首页" class="nav-link" target="_self">
+                            <i class="fa-solid fa-arrow-left"></i> 返回栖拓工坊
+                        </a>
+                    </span>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+
+        <!-- 标题区域 -->
+        <header id="home">
+            <div class="header-content">
+                <h1>混元登仙</h1>
+                <p class="subtitle">以铁魔法为核心的硬核战斗探索整合包，完善的主线支线和职业系统</p>
+            </div>
+        </header>
+
+        <!-- 整合包介绍 -->
+        <section id="introduction" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-book"></i> 整合包介绍
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <p class="post-excerpt">
+                                混元登仙是一款以铁魔法为核心的整合包；整合包主打 硬核，战斗，探索， 运用了Astages模组和Kubejs模组的搭配定制了阶段。
+                            </p>
+                            <p class="post-excerpt">
+                                完善的主线以及支线。4个不同的职业。作者自制了一些模组来配合整合包的流程。前期面临的硬核生存，后期数值上来的双感。
+                            </p>
+                            <p class="post-excerpt">
+                                更多的附魔，更多的搭配，探寻各种传说级附魔。在此包，宠物也会得到新的待遇。整合了多种游戏元素，MC啥都能玩。多种食物，搭配农夫乐事享受美食的多元化。
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 特色功能 -->
+        <section id="features" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-star"></i> 特色功能
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">核心特色</h3>
+                            <ul>
+                                <li>以铁魔法为核心的玩法</li>
+                                <li>硬核战斗系统</li>
+                                <li>丰富的探索内容</li>
+                                <li>完善的主线和支线任务</li>
+                                <li>4个不同的职业选择</li>
+                                <li>作者自制模组配合流程</li>
+                                <li>多种传说级附魔</li>
+                                <li>宠物系统升级</li>
+                                <li>多元化的食物系统</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 配置要求 -->
+        <section id="configuration" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-cog"></i> 配置要求
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <p class="post-excerpt">
+                                推荐12-64G游玩。
+                            </p>
+                            <h3 class="post-title">帧率测试（测试版本1.0，10渲染，10阴影）</h3>
+                            <h4>无光影（创造飞行跑图情况）：</h4>
+                            <ul>
+                                <li>视频设置：分辨率 2K，画质 流畅</li>
+                                <li>显卡：4060</li>
+                                <li>CPU：14600KF</li>
+                                <li>内存分配：20G</li>
+                                <li>最高帧数：389FPS</li>
+                                <li>最低帧数：235FPS</li>
+                            </ul>
+                            <h4>有光影（Derivative Main d24.4.14）：</h4>
+                            <ul>
+                                <li>视频设置：分辨率 2K，画质 流畅</li>
+                                <li>显卡：4060</li>
+                                <li>CPU：14600KF</li>
+                                <li>内存分配：20G</li>
+                                <li>最高帧数：101FPS</li>
+                                <li>最低帧数：78FPS</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 下载部分 -->
+        <section id="download" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-download"></i> 下载
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <div class="btn-container">
+                                <a href="#" class="btn btn-primary" disabled>
+                                    <i class="fa-solid fa-download"></i> 下载整合包
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        <!-- 常见问题 -->
+        <section id="faq" class="post-container">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">
+                <i class="fa-solid fa-question-circle"></i> 常见问题
+            </h2>
+            <article class="post post--photo post--cover post--index main-item">
+                <div class="post-inner">
+                    <section class="post-item post-body">
+                        <div class="wrapper post-wrapper">
+                            <h3 class="post-title">Q: 主世界刷新的龙怎么驯服？</h3>
+                            <p class="post-excerpt">
+                                A: 新手装备有送一个驯龙要的食物，后面得自己做（前提是得把龙打到半血才可以尝试驯服）
+                            </p>
+                            
+                            <h3 class="post-title">Q: 主世界刷新的chiikawa生物该怎么驯服？</h3>
+                            <p class="post-excerpt">
+                                A: 使用原版食物即可，详情请看Chiikawa
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+        </section>
+
+        </main>
+        <div class="right-sidebar" id="rightSidebar">
+            <!-- 侧边栏控制按钮 -->
+            <div class="sidebar-toggle" onclick="toggleSidebar()">
+                <i class="fa-solid fa-chevron-left" id="sidebarToggleIcon"></i>
+            </div>
+            <!-- 搜索功能 -->
+            <div class="search-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-search"></i>
+                    <span class="title">搜索</span>
+                </header>
+                <section class="section-body">
+                    <form method="get" action="#" class="search-container">
+                        <input type="text" name="s" class="search-input" placeholder="输入关键字搜索">
+                        <button type="submit" class="search-button" aria-label="搜索">
+                            <i class="fa-solid fa-search"></i>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- 分类模块 -->
+            <div class="category-section">
+                <header class="section-header">
+                    <i class="fa-solid fa-tags"></i>
+                    <span class="title">分类</span>
+                </header>
+                <section class="section-body">
+                    <div class="category-cloud">
+                        <a href="#introduction" class="category">整合包介绍</a>
+                        <a href="#features" class="category">特色功能</a>
+                        <a href="#configuration" class="category">配置要求</a>
+                        <a href="#download" class="category">下载</a>
+                        <a href="#faq" class="category">常见问题</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 推广卡片 -->
+            <div class="promo-section">
+                <a href="/myweb/index.html" class="promo-card" title="栖拓工坊">
+                    <div class="promo-card-icon">🎮</div>
+                    <div class="promo-card-title">栖拓工坊</div>
+                    <div class="promo-card-desc">
+                        <p>专注于我的世界内容创作</p>
+                        <p>为您带来优质的游戏体验</p>
+                    </div>
+                    <div class="promo-card-btn">了解更多 →</div>
+                    <div class="promo-card-badge">官方网站</div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="nav main-lastinfo">
+            <span class="nav-item-alt">
+                <p>混元登仙整合包 - 以铁魔法为核心的硬核战斗探索整合包</p>
+                <p>关注我们获取最新更新和更多内容</p>
+                <div class="social-links">
+                    <a href="https://space.bilibili.com/1643252705" class="social-link">
+                        <i class="fa-brands fa-bilibili"></i> B站
+                    </a>
+                    <a href="https://github.com/19136644525lxy" class="social-link">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://afdian.com/a/wodefensimen061004" class="social-link">
+                        <i class="fa-solid fa-bolt"></i> 爱发电
+                    </a>
+                </div>
+                <p>© 2025-2026 栖拓工坊 保留所有权利</p>
+            </span>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <div class="go-top dn" id="go-top">
+        <a href="#" class="go icon-up-open" aria-label="返回顶部">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script src="/myweb/assets/js/script.js"></script>
+</body>
+</html>
